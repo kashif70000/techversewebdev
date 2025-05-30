@@ -17,6 +17,7 @@ return new class extends Migration
             
             $table->string('name')->nullable();
             $table->string('type')->nullable();
+            $table->string('status')->nullable();
             $table->string('category')->nullable();
             $table->string('date_lost')->nullable();
             $table->text('description')->nullable();
