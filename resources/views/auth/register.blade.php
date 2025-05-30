@@ -1,3 +1,5 @@
+@extends('layouts.auth.layout')
+
 @section('content')
     <div class="row h-100">
         <div class="col-12 col-md-5 pe-0 position-relative">
