@@ -1,21 +1,33 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+</head>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+<body style="height: 100vh;overflow: hidden;">
+    <div class="row h-100">
+        <div class="col-12 col-md-5 pe-0 position-relative">
+            <div class="p-5" style="position: absolute;top: 50%;transform: translateY(-50%);">
+                <h2>UMT Item Recovery Portal</h2>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email:</label>
+                                <input id="email" type="email"
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    placeholder="Email" value="{{ old('email') }}" required autocomplete="email"
+                                    autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -24,13 +36,18 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="password" class="form-label">Password:</label>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                                <div class="input-group mb-3">
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="current-password" aria-describedby="basic-addon1">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="mdi mdi-eye"></i>
+                                    </span>
+                                </div>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,36 +55,28 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="col-12 my-1 text-end">
+                            <a href="#" style="text-decoration: none;">Forgot Password?</a>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
                         </div>
-                    </form>
-                </div>
+                        <div class="col-12 text-center mt-1">
+                            Dont have an account? <br>
+                            <a href="{{ route('register') }}" style="text-decoration: none;">Create a new one</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+        <div class="col-12 col-md-7" style="background-color: gray">
+
+        </div>
     </div>
-</div>
-@endsection
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
